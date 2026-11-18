@@ -1,6 +1,16 @@
-export const socialLinks = {
-  whatsapp: "",
-  instagram: "",
+import estacio from "@/assets/marcas/estacio.webp";
+import fasesEFaces from "@/assets/marcas/fases-e-faces.webp";
+import inglesPauloMineiro from "@/assets/marcas/ingles-com-paulo-mineiro.webp";
+import katyaLisboa from "@/assets/marcas/katya-lisboa.webp";
+import prideAndJoy from "@/assets/marcas/pride-and-joy.webp";
+import fribourg from "@/assets/marcas/fribourg.webp";
+
+export const contact = {
+  phoneDisplay: "(22) 99955-7666",
+  phoneHref: "tel:+5522999557666",
+  whatsappHref: "https://wa.me/5522999557666",
+  instagramHandle: "@flavialisboamkt",
+  instagramHref: "https://www.instagram.com/flavialisboamkt/",
 };
 
 export const services = [
@@ -9,51 +19,35 @@ export const services = [
   { number: "03", title: "Branding e posicionamento", description: "Clareza de marca, narrativa e presença para ocupar o lugar certo no mercado." },
   { number: "04", title: "Social media", description: "Direção editorial e conteúdo pensado para construir relevância, não apenas preencher um calendário." },
   { number: "05", title: "Campanhas e produção audiovisual", description: "Ideia, conceito e execução criativa em diferentes formatos e pontos de contato." },
+  { number: "06", title: "Criação de sites e sistemas", description: "Sites e sistemas sob medida, pensados para apresentar o negócio, gerar contatos e organizar a operação." },
 ];
 
-export const initialCases = [
-  { category: "ESTUDO DE CASO 01", title: "Título do projeto", context: "Contexto do projeto a ser preenchido.", approach: "Abordagem estratégica a ser preenchida.", outcome: "Resultados verificados a serem preenchidos." },
-  { category: "ESTUDO DE CASO 02", title: "Título do projeto", context: "Contexto do projeto a ser preenchido.", approach: "Abordagem estratégica a ser preenchida.", outcome: "Resultados verificados a serem preenchidos." },
-  { category: "ESTUDO DE CASO 03", title: "Título do projeto", context: "Contexto do projeto a ser preenchido.", approach: "Abordagem estratégica a ser preenchida.", outcome: "Resultados verificados a serem preenchidos." },
+export type BrandEntry = { name: string; logo: string };
+export const brands: BrandEntry[] = [
+  { name: "Estácio", logo: estacio },
+  { name: "Fases e Faces — Grupo Terapêutico", logo: fasesEFaces },
+  { name: "Inglês com Paulo Mineiro", logo: inglesPauloMineiro },
+  { name: "Kátya Lisboa — Neuropsicóloga", logo: katyaLisboa },
+  { name: "Pride & Joy — Eventos e Buffet", logo: prideAndJoy },
+  { name: "Fribourg — Picolés e Sorvetes", logo: fribourg },
 ];
 
-// Marcas: preenchido somente com logotipos e nomes oficiais fornecidos.
-// imageUrl aceita a logo quando houver arquivo real; vazio = espaço reservado.
-export type BrandEntry = { id: string; name: string; imageUrl: string };
-export const initialBrands: BrandEntry[] = [];
-
-// Depoimentos: exemplos de layout apenas — nenhum depoimento fictício é
-// apresentado como real. Publicação sempre condicionada ao campo authorization.
-export type TestimonialEntry = {
-  id: string;
-  quote: string;
-  author: string;
-  role: string;
-  company: string;
-  imageUrl: string; // imagem opcional; vazio = nenhum retrato utilizado
-  authorization: "Pendente" | "Autorizada" | "Não autorizada";
-  isPlaceholder: boolean;
-};
-
-export const initialTestimonials: TestimonialEntry[] = [
+export type Testimonial = { quote: string; author: string; role: string };
+export const testimonials: Testimonial[] = [
   {
-    id: "exemplo-01",
-    quote: "Espaço reservado para o texto do depoimento. Este cartão é apenas um exemplo de layout — nenhum depoimento foi criado ou atribuído a pessoas reais.",
-    author: "Nome do cliente",
-    role: "Cargo",
-    company: "Empresa",
-    imageUrl: "",
-    authorization: "Pendente",
-    isPlaceholder: true,
+    quote: "A Flávia é uma profissional que vai muito além do marketing convencional. Ela tem uma visão estratégica diferenciada, entende as necessidades do negócio e consegue transformar ideias em ações práticas e resultados. Sua criatividade, organização e comprometimento fazem toda a diferença. O que mais admiro é sua capacidade de enxergar oportunidades, propor soluções inovadoras e cuidar de cada detalhe com profissionalismo. É uma profissional que realmente agrega valor ao crescimento de uma empresa.",
+    author: "Paulo Mineiro",
+    role: "CEO Inglês com Paulo Mineiro",
   },
   {
-    id: "exemplo-02",
-    quote: "Espaço reservado para o texto do depoimento. A publicação só acontece com autorização expressa de quem depoimentou.",
-    author: "Nome do cliente",
-    role: "Cargo",
-    company: "Empresa",
-    imageUrl: "",
-    authorization: "Pendente",
-    isPlaceholder: true,
+    quote: "Trabalhar com a Flávia foi uma experiência excelente! Ela tem uma visão estratégica incrível e consegue transformar ideias em ações que realmente geram resultados. Além de ser extremamente criativa e profissional, está sempre atenta aos detalhes e às necessidades do negócio. O que mais me impressionou foi a capacidade dela de entender a marca, identificar oportunidades e desenvolver estratégias de marketing que fazem a diferença. Recomendo de olhos fechados!",
+    author: "Pedro",
+    role: "CEO Pride & Joy",
   },
+];
+
+export const platformFeatures = [
+  { title: "Tendências do seu nicho", description: "Análise ampla do que está em alta no ambiente online do seu mercado, para decidir com base em dados." },
+  { title: "Posts criados automaticamente", description: "Criação automatizada de publicações alinhadas à sua marca e às tendências identificadas." },
+  { title: "Análise de performance", description: "Acompanhamento de resultados para entender o que funciona e ajustar a estratégia com rapidez." },
 ];

@@ -14,6 +14,7 @@ import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as DepoimentosRouteImport } from './routes/depoimentos'
 import { Route as MarcasRouteImport } from './routes/marcas'
 import { Route as MarcasDepoimentosRouteImport } from './routes/marcas-depoimentos'
+import { Route as PlataformaRouteImport } from './routes/plataforma'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as SobreRouteImport } from './routes/sobre'
@@ -43,6 +44,11 @@ const MarcasDepoimentosRoute = MarcasDepoimentosRouteImport.update({
   path: '/marcas-depoimentos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlataformaRoute = PlataformaRouteImport.update({
+  id: '/plataforma',
+  path: '/plataforma',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
   path: '/portfolio',
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/depoimentos': typeof DepoimentosRoute
   '/marcas': typeof MarcasRoute
   '/marcas-depoimentos': typeof MarcasDepoimentosRoute
+  '/plataforma': typeof PlataformaRoute
   '/portfolio': typeof PortfolioRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/depoimentos': typeof DepoimentosRoute
   '/marcas': typeof MarcasRoute
   '/marcas-depoimentos': typeof MarcasDepoimentosRoute
+  '/plataforma': typeof PlataformaRoute
   '/portfolio': typeof PortfolioRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/depoimentos': typeof DepoimentosRoute
   '/marcas': typeof MarcasRoute
   '/marcas-depoimentos': typeof MarcasDepoimentosRoute
+  '/plataforma': typeof PlataformaRoute
   '/portfolio': typeof PortfolioRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/depoimentos'
     | '/marcas'
     | '/marcas-depoimentos'
+    | '/plataforma'
     | '/portfolio'
     | '/servicos'
     | '/sobre'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/depoimentos'
     | '/marcas'
     | '/marcas-depoimentos'
+    | '/plataforma'
     | '/portfolio'
     | '/servicos'
     | '/sobre'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/depoimentos'
     | '/marcas'
     | '/marcas-depoimentos'
+    | '/plataforma'
     | '/portfolio'
     | '/servicos'
     | '/sobre'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   DepoimentosRoute: typeof DepoimentosRoute
   MarcasRoute: typeof MarcasRoute
   MarcasDepoimentosRoute: typeof MarcasDepoimentosRoute
+  PlataformaRoute: typeof PlataformaRoute
   PortfolioRoute: typeof PortfolioRoute
   ServicosRoute: typeof ServicosRoute
   SobreRoute: typeof SobreRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MarcasDepoimentosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/plataforma': {
+      id: '/plataforma'
+      path: '/plataforma'
+      fullPath: '/plataforma'
+      preLoaderRoute: typeof PlataformaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/portfolio': {
       id: '/portfolio'
       path: '/portfolio'
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   DepoimentosRoute: DepoimentosRoute,
   MarcasRoute: MarcasRoute,
   MarcasDepoimentosRoute: MarcasDepoimentosRoute,
+  PlataformaRoute: PlataformaRoute,
   PortfolioRoute: PortfolioRoute,
   ServicosRoute: ServicosRoute,
   SobreRoute: SobreRoute,

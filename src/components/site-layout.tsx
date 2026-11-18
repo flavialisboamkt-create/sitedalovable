@@ -1,7 +1,8 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Instagram, Menu, MessageCircle, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { contact } from "@/lib/site-content";
 import brainMark from "@/assets/brain-mark.png";
 import fullLogo from "@/assets/logo-flavia-lisboa.jpg";
 
@@ -13,7 +14,7 @@ const links = [
   { to: "/" as const, label: "Início" },
   { to: "/sobre" as const, label: "Sobre" },
   { to: "/servicos" as const, label: "Serviços" },
-  { to: "/portfolio" as const, label: "Portfólio" },
+  { to: "/plataforma" as const, label: "Plataforma" },
   { to: "/marcas" as const, label: "Marcas" },
   { to: "/depoimentos" as const, label: "Depoimentos" },
   { to: "/contato" as const, label: "Contato" },
@@ -49,7 +50,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       <footer className="border-t border-border bg-background">
         <div className="site-container py-14 md:py-20">
           <div className="grid gap-12 md:grid-cols-[1fr_auto] md:items-start">
-            <div><img src={fullLogo} alt="Logomarca Flávia Lisboa — Marketing, Estratégia, Negócios" width={1600} height={900} loading="lazy" className="w-full max-w-sm rounded-lg border border-border" /><p className="mt-7 max-w-sm text-sm leading-7 text-muted-foreground">Estratégia com visão de negócio. Criação com intenção.</p></div>
+            <div><img src={fullLogo} alt="Logomarca Flávia Lisboa — Marketing, Estratégia, Negócios" width={1600} height={900} loading="lazy" className="w-full max-w-sm rounded-lg border border-border" /><p className="mt-7 max-w-sm text-sm leading-7 text-muted-foreground">Estratégia com visão de negócio. Criação com intenção.</p><div className="mt-6 flex flex-col gap-3 text-sm"><a href={contact.whatsappHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-soft transition-colors hover:text-primary"><MessageCircle size={16} className="text-primary" /> {contact.phoneDisplay}</a><a href={contact.instagramHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-soft transition-colors hover:text-primary"><Instagram size={16} className="text-primary" /> {contact.instagramHandle}</a></div></div>
             <nav aria-label="Navegação do rodapé" className="grid grid-cols-2 gap-x-12 gap-y-4 text-sm text-muted-foreground md:grid-cols-3">
               {links.map((link) => <Link key={link.to} to={link.to} className="transition-colors hover:text-primary">{link.label}</Link>)}
             </nav>

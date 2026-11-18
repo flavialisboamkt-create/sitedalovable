@@ -1,5 +1,20 @@
 import { useEffect, useRef } from "react";
 
+// Neural nodes of the brain artwork, in the image's own pixel space (840 x 565).
+const W = 840;
+const H = 565;
+const nodes: Array<[number, number]> = [
+  [318, 240], [375, 268], [457, 245], [513, 228], [572, 243], [617, 232],
+  [535, 268], [457, 304], [613, 314], [523, 338], [604, 368], [661, 369],
+  [487, 377], [503, 422], [604, 425],
+];
+// Connections between nodes (indexes into `nodes`), following the lines drawn in the art.
+const links: Array<[number, number]> = [
+  [0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [2, 6], [4, 6], [2, 7], [7, 6],
+  [6, 8], [5, 8], [8, 10], [10, 11], [8, 11], [7, 9], [9, 10], [9, 12],
+  [12, 13], [10, 14], [13, 14],
+];
+
 const particles = [
   { l: "62%", t: "22%", d: "0s", s: 3 }, { l: "78%", t: "16%", d: "3s", s: 2 },
   { l: "88%", t: "38%", d: "6s", s: 3 }, { l: "70%", t: "70%", d: "2s", s: 2 },
@@ -29,7 +44,23 @@ export function HeroVisual({ src, alt }: { src: string; alt: string }) {
     <div className="hero-visual">
       <div ref={ref} className="hero-parallax">
         <div className="hero-glow" aria-hidden="true" />
-        <div className="hero-enter"><img src={src} alt={alt} width={1536} height={1024} className="hero-image hero-float" /></div>
+        <div className="hero-enter">
+          <div className="hero-art">
+            <div className="hero-float hero-art-inner">
+              <img src={src} alt={alt} width={1428} height={960} className="hero-brain" fetchPriority="high" />
+              <svg className="hero-synapses" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" aria-hidden="true">
+                {links.map(([a, b], i) => {
+                  const [x1, y1] = nodes[a]!;
+                  const [x2, y2] = nodes[b]!;
+                  return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} className="synapse" style={{ animationDelay: `${(i * 0.37) % 4}s` }} />;
+                })}
+              </svg>
+              {nodes.map(([x, y], i) => (
+                <span key={i} aria-hidden="true" className="hero-node" style={{ left: `${(x / W) * 100}%`, top: `${(y / H) * 100}%`, animationDelay: `${(i * 0.53) % 3.2}s` }} />
+              ))}
+            </div>
+          </div>
+        </div>
         {particles.map((p, i) => <span key={i} aria-hidden="true" className="hero-particle" style={{ left: p.l, top: p.t, width: p.s, height: p.s, animationDelay: p.d }} />)}
       </div>
     </div>
