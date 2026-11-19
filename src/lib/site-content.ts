@@ -14,12 +14,12 @@ export const contact = {
 };
 
 export const services = [
-  { number: "01", title: "Planejamento de marketing", description: "Diagnóstico, prioridades e um plano de ação conectado aos objetivos do negócio." },
-  { number: "02", title: "Estratégia comercial", description: "Estruturação de processos, oportunidades e indicadores para decisões mais consistentes." },
-  { number: "03", title: "Branding e posicionamento", description: "Clareza de marca, narrativa e presença para ocupar o lugar certo no mercado." },
-  { number: "04", title: "Social media", description: "Direção editorial e conteúdo pensado para construir relevância, não apenas preencher um calendário." },
-  { number: "05", title: "Campanhas e produção audiovisual", description: "Ideia, conceito e execução criativa em diferentes formatos e pontos de contato." },
-  { number: "06", title: "Criação de sites e sistemas", description: "Sites e sistemas sob medida, pensados para apresentar o negócio, gerar contatos e organizar a operação." },
+  { number: "01", title: "Criação de sites e sistemas", description: "Sites e sistemas sob medida, pensados para apresentar o negócio, gerar contatos e organizar a operação." },
+  { number: "02", title: "Planejamento de marketing", description: "Diagnóstico, prioridades e um plano de ação conectado aos objetivos do negócio." },
+  { number: "03", title: "Estratégia comercial", description: "Estruturação de processos, oportunidades e indicadores para decisões mais consistentes." },
+  { number: "04", title: "Branding e posicionamento", description: "Clareza de marca, narrativa e presença para ocupar o lugar certo no mercado." },
+  { number: "05", title: "Social media", description: "Direção editorial e conteúdo pensado para construir relevância, não apenas preencher um calendário." },
+  { number: "06", title: "Campanhas e produção audiovisual", description: "Ideia, conceito e execução criativa em diferentes formatos e pontos de contato." },
 ];
 
 export type BrandEntry = { name: string; logo: string };
