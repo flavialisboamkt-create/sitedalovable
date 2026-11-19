@@ -107,7 +107,8 @@
 .hero-visual { position: absolute; inset: 0; overflow: hidden; }
 .hero-parallax { position: absolute; inset: -24px; will-change: transform; }
 .hero-enter { position: absolute; inset: 0; animation: hero-in 1.6s cubic-bezier(.2,.7,.2,1) both; }
-.hero-art { position: absolute; right: -2%; top: -2%; height: 104%; aspect-ratio: 1428 / 960; }
+.hero-art { position: absolute; right: -2%; top: -2%; height: 104%; aspect-ratio: 1428 / 960; animation: hero-sway 14s ease-in-out infinite; will-change: transform; }
+@keyframes hero-sway { 0%, 100% { transform: translate3d(0,0,0); } 25% { transform: translate3d(-40px,0,0); } 75% { transform: translate3d(40px,0,0); } }
 .hero-art-inner { position: absolute; inset: 0; }
 .hero-brain { display: block; width: 100%; height: 100%; object-fit: contain; }
 .hero-synapses { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
@@ -132,6 +133,7 @@
   .hero-enter, .hero-particle { animation: none !important; }
   .hero-particle { display: none; }
   .hero-parallax { transform: none !important; }
+  .hero .hero-art { animation-duration: 14s !important; }
   .hero .hero-float { animation-duration: 11s !important; }
   .hero .hero-brain { animation-duration: 5.5s !important; }
   .hero .hero-node { animation-duration: 3.2s !important; }
